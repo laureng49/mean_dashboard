@@ -1,0 +1,11 @@
+<div ng-controller="homeController as meep"> 
+<a href="#/dashboard">dashboard</a>
+<input type="submit" value="signout" ng-lick="meep.logout()">
+</div>
+<p></p>
+<div ng-controller="showController as meep">
+name:<h3>{{meep.user.first}}</h3>
+<p>Posted</p>
+{{meep.user.topics.length}} topics <br>
+{{meep.user._topics.length}}
+</div>

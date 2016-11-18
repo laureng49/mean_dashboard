@@ -1,0 +1,37 @@
+<div ng-controller="homeController as meep">
+<h1></h1>
+<h3>Welcome {{meep.user.first}}</h3>
+<input type= 'submit' value="Sign Out" ng-click="meep.logout()">
+</div>
+<p></p>
+<div ng-controller="topicController as meep">
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Topic</th>
+        <th>User Name</th>
+        <th>Posts</th>
+    </tr>
+    <tr ng-repeat="x in meep.topics">
+    <td>{{x.category}}</td>
+    <td><a href="/#/topics/{{x._id}}">{{x.topic}}</td>
+    <td><a href="/#/show/{{x._user._id}}">{{x._user.first}}</a></td>
+    <td>{{x.posts}}</td>
+  </tr>
+</table>
+
+<p></p>
+<p ng-repeat='error in meep.topicErrors'>{{error}}</p>
+Add New Topic:
+  <form>
+  Topic: <input type='text' ng-model='meep.topic.topic'> <br>
+  Description: <textarea ng-model='meep.topic.description'></textarea> <br>
+  Category: <select ng-model='meep.topic.category'>
+  <option>c++ </option>
+  <option> fuck dis shit</option>
+  <option> python</option>
+  <option> javascript</option>
+</select><br>
+  <input type="submit" value="Add Topic" ng-click='meep.addtopic()'> <br>
+  </form>
+</div>

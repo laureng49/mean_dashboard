@@ -1,0 +1,34 @@
+<div ng-controller="homeController as meep"> 
+	<a href="/#/dashboard">dashboard</a>
+	<input type="submit" value="signout" ng-click="meep.logout()">
+	<h3>{{meep.user.first}}</h3> posted a topic
+</div>
+<div ng-controller="showtopicController as meep">
+	
+	<p>{{meep.topic.topic}}</p>
+	<p>{{meep.topic.description}}</p>
+	<p>post Your answer here...</p>
+
+	<textarea ng-model="meep.newanswer.answer"></textarea>
+	<button ng-click="meep.addanswer(meep.topic._id)">add new answer</button>
+	<div ng-repeat= "answer in meep.topic._answers">	
+		{{answer.answer}}
+	</div>
+</div>
+	
+<!-- 
+		<input type="submit" value="Post" ng-click="meep.addanswer()">
+		<div ng-repeat="comment in comments">
+		{{comment.topic}}
+
+
+		<input type="submit" value="comment" ng-click="meep.postcomment()">
+	</div>
+
+	</div>
+	<div ng-repeat="comment in comments">
+		<textarea></textarea>
+		<input type="submit" value="comment" ng-click="meep.postcomment()">
+	</div>
+</div>
+ -->

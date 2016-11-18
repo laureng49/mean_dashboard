@@ -1,0 +1,55 @@
+<div ng-controller="homeController as meep">
+<h3>Welcome {{meep.user.first}}</h3>
+<input type = 'submit' value="Sign Out" ng-click="meep.logout()">
+</div>
+<div ng-controller="messageController as meep">
+<form>
+Messages: <input type='text' ng-model='meep.message.message' > <br>
+<input type="submit" value="Post a message" ng-click='meep.addmessage()'> <br>
+</form>
+<h1>The Wall Messages</h1>
+<div ng-repeat="x in meep.messages">
+	<p>{{x.message}}</p>
+	<p>-{{x._user.first}} {{x.date.slice(0,10)}}</p>
+	<p>Comments:</p>
+	<div ng-repeat='comment in x.comments'>
+		<p>{{comment.comment}}</p>
+		<p>-{{comment._user.first}} {{comment.date.slice(0,10)}}</p>
+	</div>
+	<h2>Add a comment:</h2>
+	<form ng-submit = 'meep.addComment(x._id)'>
+		<input type="text" ng-model='meep.comment[x._id].comment'>
+		<input type="submit" value='Add Comment'>
+	</form>
+</div>
+
+</div>
+
+<!-- <% if(typeof(errors) != 'undefined' ) { %>
+   <% for (var x in errors) { %>
+    <h3><%= errors[x].message %></h3>
+   <% } %>
+ <% } else { %>
+ 	<div>
+	<% for(x in message) { %>
+		<div>
+			<h3>Name: <%= message[x].name %></h3>
+			<h3>Message: <%= message[x].message %></h3>
+
+    <% for (y in message[x]._comment) { %>
+			<h5><%= message[x]._comment[y].name %></h5>
+				<h5><%= message[x]._comment[y].comment %></h5>
+    <% } %> -->
+<!--
+			<form action="/addcomment/<%= message[x]._id %>" method="post">
+				Name: <input type="text" name="nametwo"></input><br>
+				Comment: <textarea name="comment"></textarea>
+				<input type="submit" value="Post comment">
+			</form> -->
+<!--
+	<% } %>
+<% } %> -->
+
+
+
+</body>

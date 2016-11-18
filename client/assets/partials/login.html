@@ -1,0 +1,26 @@
+
+  <div ng-controller="userController as meep">
+  Register:
+  <p ng-repeat='error in meep.regErrors'>{{error.message}}</p>
+
+  <form>
+  Email: <input type='text' ng-model='meep.user.email' > <br>
+  First Name: <input type='text' ng-model='meep.user.first' > <br>
+  Last Name: <input type='text' ng-model='meep.user.last' > <br>
+  Password: <input type='text' ng-model='meep.user.password' > <br>
+  Password Confirm: <input type='text'> <br>
+  Birthday: <input type='date' ng-model='meep.user.birthday'> <br>
+  <input type="submit" value="Create an account" ng-click='meep.adduser()'> <br>
+  </form>
+</div>
+<p></p>
+
+<div ng-controller="userController as meep">
+<p ng-repeat='error in meep.loginErrors'>{{error}}</p>
+Login:
+  <form>
+  Email: <input type='text' ng-model='meep.user.email' > <br>
+  Password: <input type='text' ng-model='meep.user.password' > <br>
+  <input type="submit" value="Login" ng-click='meep.loginuser()'> <br>
+  </form>
+</div>
